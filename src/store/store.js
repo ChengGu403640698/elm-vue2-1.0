@@ -5,10 +5,15 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state:{
         seller:{},
+        clickItem:'',
     },
     mutations:{
         setInfo(state,Info){
             state.seller = Info;
+            state.clickItem = Info.productsList[0].key;
+        },
+        setClickItem(state,order){
+            state.clickItem = order;
         }
     },
     actions:{
