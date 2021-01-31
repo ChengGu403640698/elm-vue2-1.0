@@ -2,7 +2,7 @@
   <div>
     <nav>
       <div
-        v-for="item in seller.productsList"
+        v-for="item in $store.state.seller.productsList"
         :clickKey="item.key"
         :key="item.key"
         :style="{ backgroundColor: computedColor(item) }"
@@ -13,7 +13,11 @@
     </nav>
 
     <div id="productList" ref="movebox">
-      <div v-for="item in seller.productsList" :key="item.key" :id="item.key">
+      <div
+        v-for="item in $store.state.seller.productsList"
+        :key="item.key"
+        :id="item.key"
+      >
         <div v-for="(num, index) in item.value" :key="index">
           <div class="img">{{ item.key }}{{ num }}</div>
           <transition name="slide-fade">
@@ -62,11 +66,10 @@ export default {
       clickItem: "新春主打",
     };
   },
-  props: ["seller"],
   name: "order",
   created() {},
   mounted() {
-    for (let item of this.seller.productsList) {
+    for (let item of this.$store.state.seller.productsList) {
       this.calHeight.push(item.value.length);
       this.itemsNames.push(item.key);
     }
@@ -104,7 +107,7 @@ export default {
       window.location.hash = "#" + clickItem.getAttribute("clickKey");
     },
     addShopCart(event, type, num) {
-      let group = this.seller.productsList.filter((item) => {
+      let group = this.$store.state.seller.productsList.filter((item) => {
         return item["key"] === type;
       });
       group = group[0];

@@ -2,13 +2,15 @@
   <div style="height: 225px">
     <div class="first-level">
       <div class="second-level">
-        <img class="seller-icon" :src="seller.src" />
-        <span id="title">{{ seller.title }}</span>
-        <span id="description"
-          >商家配送约{{ seller.cosume }}分钟 月售{{ seller.numPerMonth }} 开发票
-          食无忧</span
-        >
-        <span id="info">{{ seller.info }}</span>
+        <img class="seller-icon" :src="$store.state.seller.src" />
+        <span id="title">{{ $store.state.seller.title }}</span>
+        <span id="description">
+          商家配送约{{ $store.state.seller.cosume }}分钟 月售{{
+            $store.state.seller.numPerMonth
+          }}
+          开发票 食无忧
+        </span>
+        <span id="info">{{ $store.state.seller.info }}</span>
       </div>
     </div>
   </div>
@@ -16,7 +18,6 @@
 <script>
 export default {
   name: "mainHeader",
-  props: ["seller"],
 };
 </script>
 <style scoped>
@@ -29,7 +30,7 @@ export default {
   height: 150px;
   width: 100%;
   background-color: rgba(43, 101, 128, 0.2);
-  /* 这里到时候要换成图片*/
+  /* 理论上这里应该是背景图 */
 }
 .second-level {
   position: relative;

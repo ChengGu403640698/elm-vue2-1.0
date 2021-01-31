@@ -1,5 +1,5 @@
 <template>
-  <h1>comments</h1>
+  <h1>info</h1>
 </template>
 <script>
 export default {

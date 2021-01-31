@@ -5,7 +5,7 @@
       <router-link to="/comments">评价</router-link>
       <router-link to="/sellerInfo">商家</router-link>
     </div>
-    <router-view :seller="seller"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 <script>
@@ -15,11 +15,9 @@ export default {
       iftop: false,
     };
   },
-  props: ["seller"],
   name: "mainContent",
   mounted() {
     let box = this.$refs.blockTitles;
-    console.log(box);
     window.onscroll = function () {
       if (window.scrollY > 225) {
         box.style.position = "fixed";
