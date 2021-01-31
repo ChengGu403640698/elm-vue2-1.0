@@ -20,10 +20,11 @@ export default {
   data() {
     return {
       iftop: false,
-      seller: {}, //后期应该要根据上层组件传参数过来，是对应商家的唯一信息
+      seller: {},
     };
   },
   methods: {
+    // 实际上可以通过vuex来管理商家数据
     getSellerInfo() {
       this.$axios({
         method: "get",
